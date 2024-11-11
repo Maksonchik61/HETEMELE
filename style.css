@@ -4,6 +4,7 @@ body {
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
     align-items: center;
 }
 
@@ -13,6 +14,8 @@ h2 {
     font-weight: 700;
     margin: 0;
     color: #fff;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 p {
@@ -22,12 +25,15 @@ p {
     font-style: italic;
     line-height: 1.8;
     color: #ccc;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .head {
     background-color: #575757;
-    width: calc(100% - 20px);
-    margin: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
 }
 
 .head-container {
@@ -36,7 +42,7 @@ p {
     align-items: center;
     max-width: 1140px;
     margin: 0 auto;
-    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .icon-menu,
@@ -51,16 +57,19 @@ p {
     width: 100%;
     max-width: 1320px;
     padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .menu {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     justify-items: center;
     max-width: 1000px;
-    margin: 170px auto 80px;
-    width: calc(100% - 20px);
+    margin: 10px 0 80px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .block {
@@ -79,6 +88,7 @@ p {
     display: flex;
     flex-direction: column;
     padding: 20px 30px;
+    box-sizing: border-box;
 }
 
 .footer {
@@ -86,13 +96,17 @@ p {
     color: #fff;
     padding: 20px;
     text-align: center;
-    width: calc(100% - 20px);
+    width: 100%;
     margin: 0 10px;
     box-sizing: border-box;
+    margin-top: auto;
 }
 
 .footer-container {
     padding: 0 20px;
+    box-sizing: border-box;
+    max-width: 1320px;
+    margin: 0 auto;
 }
 
 .footer-container a {
@@ -107,22 +121,33 @@ p {
 @media (max-width: 767px) {
     .menu {
         grid-template-columns: 1fr;
-        padding: 0;
+        padding: 0 15px;
     }
 
     .block {
-        max-width: none;
+        max-width: 100%;
         width: 100%;
     }
 
-    .container {
-        padding: 0 10px;
-
-    }
-
     .footer-container {
-        padding: 0 10px;
-
+        padding: 0;
     }
 
+    .head-container {
+        padding: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .menu {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 15px;
+
+    }
+}
+
+@media (min-width: 1440px) {
+    .menu {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
